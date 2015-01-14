@@ -1,4 +1,4 @@
-%deeply based on thinking as computation example
+% based on thinking as computation example
 
 %domain
 num(1). num(2).
