@@ -16,6 +16,20 @@ uniq_ppl(A,B,C,D,E,F):- person(A), person(B), person(C), person(D), person(E), p
 space:- write(" ").
 writevars(A,B,C,D,E,F):- write("["), write(A), space, write(B), space, write(C), space, write(D), space, write(E), space, write("]").
 
+writeanswers(Bathroom, Dining, Kitchen, Livingroom, Pantry, Study, Bag, Firearm, Gas, Knife, Poison, Rope):- 
+    write("Bathroom: "), write(Bathroom), nl,
+    write("Dining: "), write(Dining), nl,
+    write("Livingroom: "), write(Livingroom), nl, 
+    write("Pantry: "), write(Pantry), nl,
+    write("Study: "), write(Study), nl,
+    write("Kitchen: "), write(Kitchen), nl,
+
+    write("Knife: "), write(Knife), nl,
+    write("Gas: "), write(Gas), nl,
+    write("Rope: "), write(Rope), nl, 
+    write("Bag: "), write(Bag), nl,
+    write("Poison: "), write(Poison), nl,
+    write("Firearm: "), write(Firearm), nl.
 murderer(X) :-
    uniq_ppl(Bathroom, Dining, Kitchen, Livingroom, Pantry, Study),
    uniq_ppl(Bag, Firearm, Gas, Knife, Poison, Rope),
@@ -29,22 +43,17 @@ murderer(X) :-
 % % 3. Clue 2: Barbara was either in the study or the bathroom; Yolanda was in the other.
 % % Which room was Barbara found in?
     woman(Bathroom), woman(Study), \+christine=Bathroom, \+christine=Study, 
-%    writevars(Bathroom, Dining, Kitchen, Livingroom, Pantry, Study),
-%    writevars(Bag, Firearm, Gas, Knife, Poison, Rope),
-    \+barbara=Dining, \+barbara=Kitchen, \+barbara=Livingroom, \+barbara=Pantry, \+Kitchen=Bathroom,
-%    % How to say barbara isn't yolanda?
-    
+    \+barbara=Dining, \+barbara=Kitchen, \+barbara=Livingroom, \+barbara=Pantry,
 
 % % 4. Clue 3: The person with the bag, who was not Barbara nor George, was not in the bathroom nor the dining room.
 % % Who had the bag in the room with them?
 
     \+barbara=Bag, \+george=Bag, \+barbara=Bathroom, \+barbara=Dining,
    
-
 % % 5. Clue 4: The woman with the rope was found in the study.
 % % Who had the rope?
    
-%     woman(Rope), Rope=Study,  
+    woman(Rope), Rope=Study,  
 
 % % 6. Clue 5: The weapon in the living room was found with either John or George.
 % % What weapon was in the living room?
@@ -63,4 +72,4 @@ murderer(X) :-
 
 % % 10. It was discovered that Mr. Boddy was gassed in the pantry. The suspect found in that room was the murderer.
 % % Who, then, do you point the finger towards?
-    Pantry=Gas, Pantry=X, write(X).
+Pantry=Gas, Pantry=X, write("KILLER IS :"), write(X), nl, writeanswers(Bathroom, Dining, Kitchen, Livingroom, Pantry, Study, Bag, Firearm, Gas, Knife, Poison, Rope).
