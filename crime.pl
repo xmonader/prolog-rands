@@ -11,17 +11,7 @@ person(X):- woman(X).
 location(bathroom). location(dining). location(kitchen). location(livingroom). location(pantry). location(study).
 weapon(bag). weapon(firearm). weapon(gas). weapon(knife). weapon(poison). weapon(rope).
 
-iswoman(X):- woman(X).
-isman(X):- man(X).
-
-uniq_men(A,B,C):- man(A), man(B), man(C), \+A=B, \+A=C, \+B=C.
-uniq_women(A,B,C):- woman(A), woman(B), woman(C), \+A=B, \+A=C, \+B=C.
 uniq_ppl(A,B,C,D,E,F):- person(A), person(B), person(C), person(D), person(E), person(F),  \+A=B, \+A=C, \+A=D, \+A=E, \+A=F, \+B=C, \+B=D, \+B=E, \+B=F, \+C=D, \+C=E, \+C=F, \+D=E, \+D=F, \+E=F.
-uniq_people(A,B,C,D,E,F):- uniq_men(A,B,C), uniq_women(D,E,F).
-uniq_people(A,B,C,D,E,F):- uniq_women(A,B,C), uniq_men(D,E,F).
-uniq_weapon(A,B,C,D,E,F):- weapon(A), weapon(B), weapon(C), weapon(D), weapon(E), weapon(F), \+A=B, \+A=C, \+A=D, \+A=E, \+A=F, \+B=C, \+B=D, \+B=E, \+B=F, \+C=D, \+C=E, \+C=F, \+D=E, \+D=F, \+E=F.
-
-uniq_locations(A,B,C,D,E,F):-location(A), location(B), location(C), location(D), location(E), location(F), \+A=B, \+A=C, \+A=D, \+A=E, \+A=F, \+B=C, \+B=D, \+B=E, \+B=F, \+C=D, \+C=E, \+C=F, \+D=E, \+D=F, \+E=F.
 
 space:- write(" ").
 writevars(A,B,C,D,E,F):- write("["), write(A), space, write(B), space, write(C), space, write(D), space, write(E), space, write("]").
