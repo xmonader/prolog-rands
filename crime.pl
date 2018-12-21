@@ -14,7 +14,7 @@ weapon(bag). weapon(firearm). weapon(gas). weapon(knife). weapon(poison). weapon
 uniq_ppl(A,B,C,D,E,F):- person(A), person(B), person(C), person(D), person(E), person(F),  \+A=B, \+A=C, \+A=D, \+A=E, \+A=F, \+B=C, \+B=D, \+B=E, \+B=F, \+C=D, \+C=E, \+C=F, \+D=E, \+D=F, \+E=F.
 
 space:- write(" ").
-writevars(A,B,C,D,E,F):- write("["), write(A), space, write(B), space, write(C), space, write(D), space, write(E), space, write("]").
+writevars(A,B,C,D,E,F):- write("["), write(A), space, write(B), space, write(C), space, write(D), space, write(E), write(F), space, write("]").
 
 writeanswers(Bathroom, Dining, Kitchen, Livingroom, Pantry, Study, Bag, Firearm, Gas, Knife, Poison, Rope):- 
     write("Bathroom: "), write(Bathroom), nl,
