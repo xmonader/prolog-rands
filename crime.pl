@@ -48,7 +48,7 @@ murderer(X) :-
 % % 4. Clue 3: The person with the bag, who was not Barbara nor George, was not in the bathroom nor the dining room.
 % % Who had the bag in the room with them?
 
-    \+barbara=Bag, \+george=Bag, \+barbara=Bathroom, \+barbara=Dining,
+    \+barbara=Bag, \+george=Bag, \+barbara=Bathroom, \+barbara=Dining, \+Bag=Bathroom, \+Bag=Dining,
    
 % % 5. Clue 4: The woman with the rope was found in the study.
 % % Who had the rope?
